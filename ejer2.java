@@ -15,7 +15,7 @@ public class ejer2 {
 	JTextField jtfRadio=null;
 	JLabel jlbArea=null;
 	JTextField jtfArea=null;
-	
+	JLabel jlbLongitud=null;
 	
 	
 	public ejer2() {
@@ -58,10 +58,10 @@ public class ejer2 {
 		jpnPanel.add(jtfArea);
 		
 			//Etiqueta
+		jlbLongitud = new JLabel();
 		
 		
-		
-		
+		asdasdasdsadd
 		
 		
 		
