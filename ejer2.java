@@ -2,6 +2,7 @@ package paquete;
 
 import java.awt.Color;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,7 +17,8 @@ public class ejer2 {
 	JLabel jlbArea=null;
 	JTextField jtfArea=null;
 	JLabel jlbLongitud=null;
-	
+	JTextField jtfLongitud=null;
+	JButton jbtCalcular=null;
 	
 	public ejer2() {
 			//formulario
@@ -29,7 +31,7 @@ public class ejer2 {
 			//Panel
 		jpnPanel = new JPanel();
 		jpnPanel.setSize(750,750);
-		jpnPanel.setBackground(Color.RED);
+		jpnPanel.setBackground(Color.YELLOW);
 		jpnPanel.setLayout(null);
 		jfrVentana.add(jpnPanel);
 		
@@ -57,14 +59,39 @@ public class ejer2 {
 		jtfArea.setEditable(false);
 		jpnPanel.add(jtfArea);
 		
-			//Etiqueta
+			//Etiqueta Longitud
 		jlbLongitud = new JLabel();
+		jlbLongitud.setBounds(70,140,100,30);
+		jlbLongitud.setText("LONGITUD");
+		jpnPanel.add(jlbLongitud);
+		
+			//Etiqueta Texto longitud
+		jtfLongitud = new JTextField();
+		jtfLongitud.setBounds(140,140,100,30);
+		jtfLongitud.setEditable(false);
+		jpnPanel.add(jtfLongitud);
+		
+			//Boton  Calcular
+		jbtCalcular = new JButton();
+		jbtCalcular.setBounds(260,70,100,50);
+		jbtCalcular.setText("CALCULAR");
+		jpnPanel.add(jbtCalcular);
 		
 		
-		asdasdasdsadd
-		
-		
-		
+			//accion del boton
+		jbtCalcular.addActionListener(e -> {
+			try {
+				double radio = Double.parseDouble(jtfRadio.getText());			
+				double area = (3.14*(radio*radio));
+				double longitud = (2*3.12*radio);
+				jtfArea.setText(String.valueOf(area));
+				jtfLongitud.setText(String.valueOf(longitud));
+			}
+			catch (NumberFormatException ex) {
+				jtfArea.setText("Error");
+				jtfLongitud.setText("Error");
+			}
+			});
 		
 			//Ultima etiqueta
 		jfrVentana.setVisible(true);		
