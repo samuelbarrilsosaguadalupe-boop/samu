@@ -35,7 +35,7 @@ CREATE TABLE Fecha(
 
 --PRUEBAS
 INSERT INTO Charlas (id_Charla, nombre)
-	VALUES (1, 'Base de datos');
+	VALUES (1, NULL);							--Prueba de not null
 INSERT INTO Usuario (id_Usuario, nombre, telefono)
 	VALUES (1, 'Samuel', '+34700521867');
 INSERT INTO Asistencia (id_Charla, id_Usuario)
