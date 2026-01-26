@@ -32,6 +32,23 @@ CREATE TABLE Fecha(
 	CONSTRAINT fk_Fechas_Charlas FOREIGN KEY (id_Charla)
 		REFERENCES Charlas(id_Charla),
 );
+CREATE TABLE Colegios(
+	id_Colegio SMALLINT NOT NULL,
+	nombre VARCHAR(100) NOT NULL,
+	persona_Contacto VARCHAR(100) NOT NULL,
+	tfno_Contacto CHAR(13),
+
+	CONSTRAINT PK_id_Colegio PRIMARY KEY (id_Colegio),
+	CONSTRAINT CS_nombre UNIQUE (nombre),
+);
+CREATE TABLE Colegios_Actividades(
+	id_Reserva SMALLINT IDENTITY (1,1) NOT NULL,
+	id_Colegio SMALLINT NULL,
+	id_Charla SMALLINT NULL,
+	fecha DATE NOT NULL,
+	numero_Asistentes SMALLINT NOT NULL,
+
+);
 
 --PRUEBAS
 INSERT INTO Charlas (id_Charla, nombre)
@@ -44,3 +61,5 @@ INSERT INTO Fecha (id_Charla, Fechahora)
 	VALUES (1, '2026-05-05 12:46:43');
 INSERT INTO Asistencia (id_Charla, id_Usuario) 
 	VALUES (-5, 1);											--Fallo de Check
+INSERT INTO Colegios (id_Colegio, nombre, persona_Contacto, tfno_Contacto)
+	VALUES (0, 'plazas disponibles', 'no procede', 'no procede');
