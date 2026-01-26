@@ -1,6 +1,6 @@
 CREATE TABLE Charlas(
 	id_Charla SMALLINT IDENTITY(1,1) NOT NULL,
-	nombre VARCHAR(255) NOT NULL,
+	nombre VARCHAR(100) NOT NULL,
 	informacion_adicional VARCHAR(MAX) NULL,
 	
 	CONSTRAINT PK_Charlas PRIMARY KEY (id_Charla),								--Primary key
@@ -44,3 +44,4 @@ INSERT INTO Fecha (id_Charla, Fechahora)
 	VALUES (1, '2026-05-05 12:46:43');
 INSERT INTO Asistencia (id_Charla, id_Usuario) 
 	VALUES (-5, 1);											--Fallo de Check
+
