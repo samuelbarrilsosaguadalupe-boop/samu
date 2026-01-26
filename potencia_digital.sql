@@ -23,7 +23,7 @@ CREATE TABLE Asistencia(
 		REFERENCES Charlas(id_Charla),
 	CONSTRAINT FK_Asistencia_Usuario FOREIGN KEY (id_Usuario)
 		REFERENCES Usuario(id_Usuario),
-	CONSTRAINT Check_Asistencia CHECK (id_Charla >= 0 AND id_Ususario >=0),		--Check que se pide en el enunciado
+	CONSTRAINT Check_Asistencia CHECK (id_Charla >= 0 AND id_Usuario >=0),		--Check que se pide en el enunciado
 );
 CREATE TABLE Fecha(
 	id_Charla SMALLINT NOT NULL,
@@ -35,12 +35,12 @@ CREATE TABLE Fecha(
 
 --PRUEBAS
 INSERT INTO Charlas (id_Charla, nombre)
-	VALUES (1, NULL);							--Prueba de not null
+	VALUES (1, NULL);										--Prueba de not null
 INSERT INTO Usuario (id_Usuario, nombre, telefono)
 	VALUES (1, 'Samuel', '+34700521867');
 INSERT INTO Asistencia (id_Charla, id_Usuario)
 	VALUES (1, 25);											--Prueba de fallo
 INSERT INTO Fecha (id_Charla, Fechahora) 
-	VALUES (1, '2026-05-25 12:46:43');
-INSERT INTO Usuario (idUsuario, nombre, telefono) 
-	VALUES (-5, 'Ramon', '+34678945435');					--Fallo de Check
+	VALUES (1, '2026-05-05 12:46:43');
+INSERT INTO Asistencia (id_Charla, id_Usuario) 
+	VALUES (-5, 1);											--Fallo de Check
