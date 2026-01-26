@@ -1,6 +1,6 @@
 CREATE TABLE Charlas(
 	id_Charla SMALLINT IDENTITY(1,1) NOT NULL,
-	nombre VARCHAR(255) NOT NULL,
+	nombre VARCHAR(100) NOT NULL,
 	informacion_adicional VARCHAR(MAX) NULL,
 	
 	CONSTRAINT PK_Charlas PRIMARY KEY (id_Charla),								--Primary key
