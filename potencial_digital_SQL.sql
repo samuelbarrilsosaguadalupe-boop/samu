@@ -43,11 +43,16 @@ CREATE TABLE Colegios(
 );
 CREATE TABLE Colegios_Actividades(
 	id_Reserva SMALLINT IDENTITY (1,1) NOT NULL,
-	id_Colegio SMALLINT NULL,
+	id_Colegio SMALLINT NULL DEFAULT 0,
 	id_Charla SMALLINT NULL,
 	fecha DATE NOT NULL,
 	numero_Asistentes SMALLINT NOT NULL,
 
+	CONSTRAINT PK_id_Reserva PRIMARY KEY (id_Reserva),
+	CONSTRAINT FK_Charla_Actividades FOREIGN KEY (id_Charla)
+		REFERENCES Charlas(id_Charla) ON DELETE NO ACTION,
+	CONSTRAINT FK_id_Colegio_Actividades FOREIGN KEY (id_Colegio)
+		REFERENCES Colegios(id_Colegio) ON DELETE CASCADE,
 );
 
 --PRUEBAS
