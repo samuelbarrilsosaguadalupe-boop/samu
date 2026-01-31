@@ -57,7 +57,7 @@ CREATE TABLE Colegios_Actividades(
 
 --PRUEBAS
 INSERT INTO Charlas (id_Charla, nombre)
-	VALUES (1, NULL);										--Prueba de not null
+	VALUES (1, 'La IA?');										--Prueba de not null
 INSERT INTO Usuario (id_Usuario, nombre, telefono)
 	VALUES (1, 'Samuel', '+34700521867');
 INSERT INTO Asistencia (id_Charla, id_Usuario)
@@ -67,4 +67,22 @@ INSERT INTO Fecha (id_Charla, Fechahora)
 INSERT INTO Asistencia (id_Charla, id_Usuario) 
 	VALUES (-5, 1);											--Fallo de Check
 INSERT INTO Colegios (id_Colegio, nombre, persona_Contacto, tfno_Contacto)
-	VALUES (0, 'plazas disponibles', 'no procede', 'no procede');
+	VALUES 
+	(0, 'plazas disponibles', 'no procede', 'no procede'),
+	(1, 'Guadalupe', 'Tomas', '+34567832493'),
+	(2, 'Reino Aftasi', 'Juan', '+34943567832');
+
+
+INSERT INTO Colegios_Actividades (id_Reserva, id_Colegio, id_Charla, fecha, numero_asistentes)
+	VALUES
+	(1, 1, 1, '2026-04-04', 5),
+	(2, 2, 2, '2026-05-08', 4);
+
+
+--Pruebas de borrado
+	--Borrado con Cascada 
+DELETE FROM Colegios WHERE id_Colegio = 1;
+SELECT * FROM Colegios_Actividades; -- visualizar que se ha borrado
+
+	--Borrado con Restricción
+DELETE FROM Charlas WHERE id_Charla = 1;
