@@ -86,3 +86,27 @@ SELECT * FROM Colegios_Actividades; -- visualizar que se ha borrado
 
 	--Borrado con Restricción
 DELETE FROM Charlas WHERE id_Charla = 1;
+
+--Prueba de comprobaciones de un foreign key
+INSERT INTO Charlas
+	VALUES
+	(1, 'expo'),
+	(2, 'IA'),
+	(3, 'Foreign keys'),
+	(4, 'Recursivas');
+INSERT INTO Usuario
+	VALUES
+	(2, 'Juan Carlos', '+34765456543'),
+	(3, 'Ivan', '+34765456543'),
+	(4, 'Pablo', '+34765456543');
+INSERT INTO Asistencia
+	VALUES (7, 7);--Comprobacion de que no existan en la tabla padre (Los datos no existen en la tabla padre)
+
+INSERT INTO Asistencia
+	VALUES (2,2);
+DELETE FROM Charlas WHERE id_Charla = 2;--Comprobacion de intentar eliminar un dato en la tabla padre que tiene datos en la tabla hija(Los datos estan tanto en la tabla
+--padre como en la hija)
+
+UPDATE Asistencia SET id_Charla =6 WHERE id_Charla=2; --Estoy actualizando un dato que no existe en la tabla padre
+
+UPDATE Charlas SET id_Charla = 8 WHERE id_Charla=2; --Estoy actualizando un dato que ya existe en la tabla hijo impidiendo que se cambie de la tabla padre
