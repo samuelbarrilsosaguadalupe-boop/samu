@@ -36,7 +36,7 @@ CREATE TABLE Colegios(
 	id_Colegio SMALLINT NOT NULL,
 	nombre VARCHAR(100) NOT NULL,
 	persona_Contacto VARCHAR(100) NOT NULL,
-	tfno_Contacto CHAR(13),
+	tfno_Contacto CHAR(13) NULL,
 
 	CONSTRAINT PK_id_Colegio PRIMARY KEY (id_Colegio),
 	CONSTRAINT CS_nombre UNIQUE (nombre),
@@ -110,3 +110,16 @@ DELETE FROM Charlas WHERE id_Charla = 2;--Comprobacion de intentar eliminar un d
 UPDATE Asistencia SET id_Charla =6 WHERE id_Charla=2; --Estoy actualizando un dato que no existe en la tabla padre
 
 UPDATE Charlas SET id_Charla = 8 WHERE id_Charla=2; --Estoy actualizando un dato que ya existe en la tabla hijo impidiendo que se cambie de la tabla padre
+
+
+--Prueba de null y de deafult
+INSERT INTO Colegios_Actividades
+	VALUES
+	(3, NULL, NULL, '2025-06-06', 7),	--Efectuamos el null
+	(4, DEFAULT, 2, '2025-09-09',3);	--Efectuamos el default
+INSERT INTO Colegios_Actividades (id_Reserva, id_Charla, fecha, numero_asistentes)
+	VALUES
+	(5, 3, '2026-07-07', 4);	--Aqui no estamos poniendo idColegio que es default
+INSERT INTO Colegios_Actividades (id_Reserva, id_Colegio, fecha, numero_asistentes)
+	VALUES
+	(2, 1, '2024-01-01', 8);	--Aqui no estamos poniendo idCharla que es null
