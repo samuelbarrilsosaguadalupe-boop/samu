@@ -1,23 +1,32 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f0e8;
+    background-image: url('./imagenes/fondo.jpg');
     margin: 0;
     padding: 20px;
 }
 
-header{
-    background-color: #ff0000;
-    color: #ff0000;
+header {
+    padding: 1px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    color: #1a2e4a;
     text-align: center;
 }
 
 main {
-    background-color: white;
+    background: rgba(255, 255, 255, 0.6);
     padding: 40px;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 320px;
+    width: 620px;
     margin: 20px auto;
+    backdrop-filter: blur(8px);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+main textarea {
+    width: 97%;
+    height: 150px;
 }
 
 main h2 {
@@ -32,13 +41,12 @@ label {
     color: #1a2e4a;
 }
 
-input[type="text"],
-input[type="password"] {
+input[type="text"],input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 10px;
     box-sizing: border-box;
 }
 
@@ -51,7 +59,102 @@ input[type="submit"] {
     border-radius: 6px;
     cursor: pointer;
 }
+main button {
+    width: 100%;
+    padding: 10px;
+    background-color: #1a2e4a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
 
 input[type="submit"]:hover {
     background-color: #243d5e;
+}
+.field-group {
+
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.field-group label {
+    font-weight: bold;
+    margin-bottom: 6px;
+    display: block;
+}
+nav {
+    margin-top: 5px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    display: flex;
+    gap: 2rem;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #e0d8cc;
+    justify-content: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #1e3a4f;
+    font-weight: 600;
+    padding-bottom: 6px;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+nav a:hover {
+    color: #c9a84c;
+    border-bottom-color: #c9a84c;
+}
+
+nav a.active {
+    color: #c9a84c;
+    border-bottom-color: #c9a84c;
+}
+.mensaje-container {
+    margin: 20px auto;
+    max-width: 700px;
+    white-space: nowrap;
+}
+.mensaje-card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    display: inline-block;
+    width: 63%;
+    vertical-align: top;
+    white-space: normal;
+    margin-left: 10px;
+    margin: 10px;
+}
+.comillas {
+    font-size: 3rem;
+    color: #c9a84c;
+    line-height: 1;
+}
+.perfil-card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    display: inline-block;
+    width: 28%;
+    vertical-align: top;
+    text-align: center;
+    white-space: normal;
+}
+
+.perfil-card img {
+    width: 100%;
+    border-radius: 40px;
+    margin-bottom: 10px;
+}
+
+.perfil-card p {
+    font-size: 0.9rem;
+    color: #1e3a4f;
 }
